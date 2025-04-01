@@ -60,4 +60,9 @@ public class Ver : MonoBehaviour
     {
         if(collision.gameObject.tag == "Molecule") Grow();
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(GetComponent<Ver>());
+    }
 }
