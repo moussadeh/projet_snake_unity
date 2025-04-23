@@ -16,6 +16,9 @@ public class Ver : MonoBehaviour
 
     public GameObject spriteRenderer;  // Assure-toi que c'est un GameObject
     public Button btnRejouer;          // Assure-toi que c'est un Button
+    public AudioSource audioSourceEat;
+    public AudioSource audioSourceAmbiance;
+    public AudioSource audioSourceLoose;
 
     void Start()
     {
@@ -91,6 +94,7 @@ public class Ver : MonoBehaviour
     {
         if(collision.gameObject.tag == "Molecule")
         {
+            audioSourceEat.Play();
             Grow();
             Score += 1;
             TextScore.text = "Score : " + Score;
@@ -119,6 +123,8 @@ public class Ver : MonoBehaviour
             Debug.LogError("btnRejouer n'est pas assigné dans l'Inspector !");
         }
 
+        audioSourceAmbiance.Stop();
+        audioSourceLoose.Play();
         Destroy(GetComponent<Ver>());
     }
 }
