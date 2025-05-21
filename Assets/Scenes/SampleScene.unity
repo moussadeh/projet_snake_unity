@@ -506,13 +506,10 @@ MonoBehaviour:
   TextScore: {fileID: 1140568905}
   spriteRenderer: {fileID: 486748935}
   btnRejouer: {fileID: 598948774}
-<<<<<<< HEAD
   isSafe: 0
-=======
   audioSourceEat: {fileID: 1597307136}
   audioSourceAmbiance: {fileID: 1835540051}
   audioSourceLoose: {fileID: 890080385}
->>>>>>> 89a4ceff66a14c2f3cad9203ba417cb33123db51
 --- !u!212 &1172919538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4631,10 +4628,7 @@ SceneRoots:
   - {fileID: 271443072}
   - {fileID: 486748937}
   - {fileID: 749226056}
-<<<<<<< HEAD
   - {fileID: 223425445}
-=======
   - {fileID: 1835540052}
   - {fileID: 1597307137}
   - {fileID: 890080386}
->>>>>>> 89a4ceff66a14c2f3cad9203ba417cb33123db51
