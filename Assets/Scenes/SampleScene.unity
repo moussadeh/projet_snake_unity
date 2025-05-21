@@ -502,6 +502,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   segmentPrefab: {fileID: 4560636795019862395, guid: 7e77cb985903da94cb7911eb07607185, type: 3}
+  Score: 0
+  TextScore: {fileID: 1140568905}
+  spriteRenderer: {fileID: 486748935}
+  btnRejouer: {fileID: 598948774}
+  isSafe: 0
+  audioSourceEat: {fileID: 1597307136}
+  audioSourceAmbiance: {fileID: 1835540051}
+  audioSourceLoose: {fileID: 890080385}
 --- !u!212 &1172919538
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4616,3 +4624,11 @@ SceneRoots:
   - {fileID: 706911819}
   - {fileID: 2013261973}
   - {fileID: 1387204197}
+  - {fileID: 946027031}
+  - {fileID: 271443072}
+  - {fileID: 486748937}
+  - {fileID: 749226056}
+  - {fileID: 223425445}
+  - {fileID: 1835540052}
+  - {fileID: 1597307137}
+  - {fileID: 890080386}
