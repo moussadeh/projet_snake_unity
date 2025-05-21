@@ -8,18 +8,14 @@ using UnityEngine.SceneManagement;
 public class Ver : MonoBehaviour
 {
     Vector2 dir;
-    List<Transform> segments = new List<Transform>();
+    public List<Transform> segments = new List<Transform>();
     [SerializeField] Transform segmentPrefab;
     
     public int Score = 0;
     public TextMeshProUGUI TextScore;
 
-    public GameObject spriteRenderer;
-    public Button btnRejouer;
-    public bool isSafe = false;
-    public AudioSource audioSourceEat;
-    public AudioSource audioSourceAmbiance;
-    public AudioSource audioSourceLoose;
+    public GameObject spriteRenderer;  // Assure-toi que c'est un GameObject
+    public Button btnRejouer;          // Assure-toi que c'est un Button
 
     void Start()
     {
@@ -95,35 +91,11 @@ public class Ver : MonoBehaviour
     {
         if(collision.gameObject.tag == "Molecule")
         {
-            audioSourceEat.Play();
             Grow();
             Score += 1;
             TextScore.text = "Score : " + Score;
         }
-
-        if (collision.CompareTag("SafePlace"))
-        {
-            isSafe = true;
-            Debug.Log("Le ver est en sécurité !");
-        }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("SafePlace"))
-        {
-            isSafe = false;
-            Debug.Log("Le ver n'est plus en sécurité !");
-        }
-    }
-    /*private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("SafePlace"))
-        {
-            isSafe = true;
-            Debug.Log("Le ver est toujours en sécurité !");
-        }
-    }*/
 
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -147,8 +119,6 @@ public class Ver : MonoBehaviour
             Debug.LogError("btnRejouer n'est pas assigné dans l'Inspector !");
         }
 
-        audioSourceAmbiance.Stop();
-        audioSourceLoose.Play();
         Destroy(GetComponent<Ver>());
     }
 }
