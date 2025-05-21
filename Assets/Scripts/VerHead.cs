@@ -14,8 +14,9 @@ public class Ver : MonoBehaviour
     public int Score = 0;
     public TextMeshProUGUI TextScore;
 
-    public GameObject spriteRenderer;  // Assure-toi que c'est un GameObject
-    public Button btnRejouer;          // Assure-toi que c'est un Button
+    public GameObject spriteRenderer;
+    public Button btnRejouer;
+    public bool isSafe = false;
     public AudioSource audioSourceEat;
     public AudioSource audioSourceAmbiance;
     public AudioSource audioSourceLoose;
@@ -99,7 +100,30 @@ public class Ver : MonoBehaviour
             Score += 1;
             TextScore.text = "Score : " + Score;
         }
+
+        if (collision.CompareTag("SafePlace"))
+        {
+            isSafe = true;
+            Debug.Log("Le ver est en sécurité !");
+        }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("SafePlace"))
+        {
+            isSafe = false;
+            Debug.Log("Le ver n'est plus en sécurité !");
+        }
+    }
+    /*private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("SafePlace"))
+        {
+            isSafe = true;
+            Debug.Log("Le ver est toujours en sécurité !");
+        }
+    }*/
 
     void OnCollisionEnter2D(Collision2D collision)
     {
