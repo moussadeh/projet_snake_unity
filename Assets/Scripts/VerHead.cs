@@ -14,18 +14,12 @@ public class Ver : MonoBehaviour
     public int Score = 0;
     public TextMeshProUGUI TextScore;
 
-<<<<<<< HEAD
     public GameObject spriteRenderer;
     public Button btnRejouer;
-
     public bool isSafe = false;
-=======
-    public GameObject spriteRenderer;  // Assure-toi que c'est un GameObject
-    public Button btnRejouer;          // Assure-toi que c'est un Button
     public AudioSource audioSourceEat;
     public AudioSource audioSourceAmbiance;
     public AudioSource audioSourceLoose;
->>>>>>> 89a4ceff66a14c2f3cad9203ba417cb33123db51
 
     void Start()
     {
