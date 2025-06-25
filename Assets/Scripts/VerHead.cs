@@ -14,6 +14,10 @@ public class Ver : MonoBehaviour
     public int Score = 0;
     public TextMeshProUGUI TextScore;
 
+    public AudioSource audioSourceEat;
+    public AudioSource audioSourceAmbiance;
+    public AudioSource audioSourceLoose;
+
     void Start()
     {
         Time.timeScale = 0.18f;
@@ -68,6 +72,7 @@ public class Ver : MonoBehaviour
     {
         if (collision.gameObject.tag == "Molecule")
         {
+            audioSourceEat.Play();
             Grow();
             Score += 1;
             TextScore.text = "Score : " + Score;
@@ -78,10 +83,20 @@ public class Ver : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
+        StartCoroutine(PlayLooseAndChangeScene());
+    }
+
+    IEnumerator PlayLooseAndChangeScene()
+    {
+        audioSourceAmbiance.Stop();
+        audioSourceLoose.Play();
+
+        yield return new WaitForSeconds(0.3f); // Attente très courte
+
         SceneManager.LoadScene("Menu");
 
-        // audioSourceAmbiance.Stop();
-        // audioSourceLoose.Play();
         Destroy(GetComponent<Ver>());
     }
+
+
 }
