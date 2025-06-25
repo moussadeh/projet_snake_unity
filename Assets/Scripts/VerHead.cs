@@ -83,19 +83,16 @@ public class Ver : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        StartCoroutine(PlayLooseAndChangeScene());
+        StartCoroutine(DieAndWaitForSound());
     }
 
-    IEnumerator PlayLooseAndChangeScene()
+    IEnumerator DieAndWaitForSound()
     {
+        enabled = false;
         audioSourceAmbiance.Stop();
         audioSourceLoose.Play();
-
-        yield return new WaitForSeconds(0.3f); // Attente très courte
-
+        yield return new WaitWhile(() => audioSourceLoose.isPlaying);
         SceneManager.LoadScene("Menu");
-
-        Destroy(GetComponent<Ver>());
     }
 
 
