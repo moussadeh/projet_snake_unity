@@ -14,36 +14,13 @@ public class Ver : MonoBehaviour
     public int Score = 0;
     public TextMeshProUGUI TextScore;
 
-    public GameObject spriteRenderer;  // Assure-toi que c'est un GameObject
-    public Button btnRejouer;          // Assure-toi que c'est un Button
-
     void Start()
     {
         Time.timeScale = 0.18f;
         dir = Vector2.right;
         segments.Add(transform);
 
-        TextScore = GameObject.Find("TextScore").GetComponent<TextMeshProUGUI>();
-        
-        // Vérifie si spriteRenderer est assigné avant de l'utiliser
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.SetActive(false);
-        }
-        else
-        {
-            Debug.LogError("spriteRenderer n'est pas assigné dans l'Inspector !");
-        }
-
-        // Vérifie si btnRejouer est assigné avant de l'utiliser
-        if (btnRejouer != null)
-        {
-            btnRejouer.gameObject.SetActive(false);
-        }
-        else
-        {
-            Debug.LogError("btnRejouer n'est pas assigné dans l'Inspector !");
-        }
+        TextScore = GameObject.Find("TextScore").GetComponent<TextMeshProUGUI>();       
     }
 
     void Update()
@@ -89,36 +66,22 @@ public class Ver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Molecule")
+        if (collision.gameObject.tag == "Molecule")
         {
             Grow();
             Score += 1;
             TextScore.text = "Score : " + Score;
+            GameData.score = Score;
+
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Vérifie si spriteRenderer est assigné avant de l'utiliser
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.SetActive(true);  // Afficher le sprite lorsque la collision se produit
-        }
-        else
-        {
-            Debug.LogError("spriteRenderer n'est pas assigné dans l'Inspector !");
-        }
+        SceneManager.LoadScene("Menu");
 
-        // Vérifie si btnRejouer est assigné avant de l'utiliser
-        if (btnRejouer != null)
-        {
-            btnRejouer.gameObject.SetActive(true);
-        }
-        else
-        {
-            Debug.LogError("btnRejouer n'est pas assigné dans l'Inspector !");
-        }
-
+        // audioSourceAmbiance.Stop();
+        // audioSourceLoose.Play();
         Destroy(GetComponent<Ver>());
     }
 }
