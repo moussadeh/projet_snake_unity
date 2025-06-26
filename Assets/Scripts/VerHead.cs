@@ -10,6 +10,7 @@ public class Ver : MonoBehaviour
     Vector2 dir;
     public List<Transform> segments = new List<Transform>();
     [SerializeField] Transform segmentPrefab;
+    [SerializeField] private FlushAnimation flushAnimation;
     
     public int Score = 0;
     public TextMeshProUGUI TextScore;
@@ -92,6 +93,10 @@ public class Ver : MonoBehaviour
         audioSourceAmbiance.Stop();
         audioSourceLoose.Play();
         yield return new WaitWhile(() => audioSourceLoose.isPlaying);
+        if (flushAnimation != null)
+        {
+            flushAnimation.StopFlushAnimation();
+        }
         SceneManager.LoadScene("Menu");
     }
 
