@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0fc38ff048fe4fe29ced125fcdbfc48
+guid: 03d118dfcb730644aa35aed9b5626676
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8115147745680720361
-    second: ChatGPT Image 26 juin 2025, 09_24_55_0
+      213: 4902388441486542446
+    second: Snake_Game_Start_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,11 +96,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ChatGPT Image 26 juin 2025, 09_24_55_0
+      name: Snake_Game_Start_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 71e73e60f14316f80800000000000000
-      internalID: -8115147745680720361
+      spriteID: e6649c54058c80440800000000000000
+      internalID: 4902388441486542446
       vertices: []
       indices: 
       edges: []
